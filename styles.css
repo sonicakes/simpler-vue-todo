@@ -52,6 +52,7 @@ table {
 
 body {
     font-family: 'Josefin Sans', sans-serif;
+    color: white;
 }
 
 li {
@@ -63,9 +64,29 @@ span.cross{
     background-repeat: no-repeat;
     height: 18px;
     width: 18px;
-
 }
 
 .completed {
     text-decoration: line-through;
+}
+
+.inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20%;
+}
+
+.container {
+    background: hsl(235, 21%, 11%);
+    height: 100vh;
+}
+
+.input-bar, .filter-bar {
+    display: flex;
+}
+
+.filter-item {
+    margin-right: 10px;
 }
