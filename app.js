@@ -4,15 +4,30 @@ const app = Vue.createApp({
       addedTask: "",
       tasks: [
         {
-          name: "test-task",
+          name: "test-task-1",
           isComplete: false,
+        },
+        {
+          name: "test-task-2",
+          isComplete: true,
         },
       ],
     };
   },
-  computed: {},
+  computed: {
+    remainingTasks() {
+       
+        let newAr = this.tasks.filter(function(task) {
+            return task.isComplete == false;
+        });
+
+        return newAr.length;
+        
+      },
+  },
   watch: {},
   methods: {
+  
     addTask() {
       this.tasks.push({
         name: this.addedTask,
@@ -22,7 +37,7 @@ const app = Vue.createApp({
     },
     completeTask(task) {
       task.isComplete = !task.isComplete;
-    },
+     }, 
     removeTask(idx) {
       this.tasks.splice(idx, 1);
     },

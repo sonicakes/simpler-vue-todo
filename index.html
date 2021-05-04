@@ -17,6 +17,9 @@
   <body>
     <h1>app</h1>
     <div id="todo">
+        <div v-if="remainingTasks <= 0">No remaining tasks</div>
+        <div v-else-if="remainingTasks === 1">1 remaining task</div>
+        <div v-else> {{ remainingTasks }} tasks remaining</div>
       <input
         type="text"
         v-model="addedTask"
@@ -25,7 +28,7 @@
       <button @click="addTask">Add task</button>
       <ul>
         <li
-          @click="completeTask(task)"
+          @click.stop="completeTask(task)"
           :class="task.isComplete ? 'completed' : ''"
           v-for="(task, index) in tasks"
           :key="task.name"
@@ -34,10 +37,16 @@
           <span @click="removeTask(index)" class="cross"></span>
         </li>
       </ul>
+      <!-- filtering buttons below not functioning yet -->
       <button>All</button>
       <button>Active</button>
       <button>Completed</button>
       <button>Clear completed</button>
+      <div v-if="remainingTasks === 0">
+          <p>Congrats :)</p>
+          <img src='https://media3.giphy.com/media/3ornjSBhRWTaL3l2X6/giphy.gif?cid=ecf05e4736qlwjy07qjsswn9mkn1mzyo3e1vuj9ga1f2pq2x&rid=giphy.gif&ct=g' alt="yayyy">
+        </div>
+        <div v-else><img src="https://media1.tenor.com/images/dc542abacb25a0bdef5849c175f62951/tenor.gif?itemid=7398665" alt="todo"></div>
     </div>
   </body>
 </html>
