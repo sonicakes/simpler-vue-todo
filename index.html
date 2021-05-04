@@ -25,15 +25,19 @@
       <button @click="addTask">Add task</button>
       <ul>
         <li
-          @click="completeTask(index)"
-          :class="isComplete && index === activeItem ? 'completed' : ''"
+          @click="completeTask(task)"
+          :class="task.isComplete ? 'completed' : ''"
           v-for="(task, index) in tasks"
-          :key="task"
+          :key="task.name"
         >
-          {{ task }}
+          {{ task.name }}
           <span @click="removeTask(index)" class="cross"></span>
         </li>
       </ul>
+      <button>All</button>
+      <button>Active</button>
+      <button>Completed</button>
+      <button>Clear completed</button>
     </div>
   </body>
 </html>

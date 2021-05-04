@@ -2,28 +2,26 @@ const app = Vue.createApp({
   data() {
     return {
       addedTask: "",
-      tasks: [],
-      isComplete: false,
-      activeItem: "",
+      tasks: [
+        {
+          name: "test-task",
+          isComplete: false,
+        },
+      ],
     };
   },
-  computed: {
-    completedClass() {
-      return {
-        completed: this.isComplete,
-      };
-    },
-  },
+  computed: {},
   watch: {},
   methods: {
     addTask() {
-      this.tasks.push(this.addedTask);
+      this.tasks.push({
+        name: this.addedTask,
+        isComplete: false,
+      });
       this.addedTask = "";
     },
-    completeTask(idx) {
-      // establish the active item when clicked
-      this.activeItem = idx;
-      this.isComplete = !this.isComplete;
+    completeTask(task) {
+      task.isComplete = !task.isComplete;
     },
     removeTask(idx) {
       this.tasks.splice(idx, 1);
