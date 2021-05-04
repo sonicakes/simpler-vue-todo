@@ -4,7 +4,7 @@ const app = Vue.createApp({
       addedTask: "",
       tasks: [],
       isComplete: false,
-      activeItem: ""
+      activeItem: "",
     };
   },
   computed: {
@@ -24,6 +24,9 @@ const app = Vue.createApp({
       // establish the active item when clicked
       this.activeItem = idx;
       this.isComplete = !this.isComplete;
+    },
+    removeTask(idx) {
+      this.tasks.splice(idx, 1);
     },
   },
 });

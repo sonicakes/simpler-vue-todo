@@ -1,6 +1,6 @@
 # Frontend Mentor - Todo app
 
-### This is a simpler version of vue todo without using components.
+### This is a simpler version of vue todo without using components ( Vue cdn ).
 
 ![Design preview for the Todo app coding challenge](./design/desktop-preview.jpg)
 
