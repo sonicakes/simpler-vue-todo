@@ -1,15 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="styles.css" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="styles.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://unpkg.com/vue@next" defer></script>
     <script src="app.js" defer></script>
     <title>Simpler version of vue todo</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>app</h1>
-</body>
+    <div id="todo">
+      <input
+        type="text"
+        v-model="addedTask"
+        placeholder="type your task here..."
+      />
+      <button @click="addTask">Add task</button>
+      <ul>
+        <li
+          @click="completeTask(index)"
+          :class="isComplete && index === activeItem ? 'completed' : ''"
+          v-for="(task, index) in tasks"
+          :key="task"
+        >
+          {{ task }}
+        </li>
+      </ul>
+    </div>
+  </body>
 </html>
