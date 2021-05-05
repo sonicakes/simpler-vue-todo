@@ -16,10 +16,13 @@
   </head>
   <body>
     <div class="container">
-        <div class="banner"><img src="/images/bg-desktop-dark.jpg"></div>
+        <div class="banner">
+          <h1>app</h1>
+          <img src="/images/bg-desktop-dark.jpg">
+        </div>
 
       <div class="inner">
-        <h1>TODO</h1>
+
         <div id="todo">
           <div v-if="remainingTasks <= 0">No remaining tasks</div>
           <div v-else-if="remainingTasks === 1">1 remaining task</div>
